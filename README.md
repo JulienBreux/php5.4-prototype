@@ -12,7 +12,7 @@ class Foo
 }
 ```
 
-### Code
+### Code #1
 ``` php
 $foo = new Foo;
 
@@ -24,7 +24,7 @@ $foo->saidHello = function($lastName)
 echo $foo->saidHello('Julien');
 ```
 
-### Code
+### Code #2
 ```php
 $bar = new Foo;
 
