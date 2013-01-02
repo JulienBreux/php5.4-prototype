@@ -4,6 +4,7 @@ Play with prototype in PHP 5.4!
 
 ## Example:
 
+### Class:
 ``` php
 class Foo
 {
@@ -11,6 +12,7 @@ class Foo
 }
 ```
 
+### Code:
 ``` php
 $foo = new Foo;
 
@@ -21,5 +23,3 @@ $foo->saidHello = function($lastName)
 
 echo $foo->saidHello('Julien');
 ```
-
-Enjoy!
