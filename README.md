@@ -2,7 +2,7 @@
 
 Play with prototype in PHP 5.4!
 
-## Example:
+## Example
 
 ### Class:
 ``` php
