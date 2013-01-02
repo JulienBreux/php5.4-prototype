@@ -4,7 +4,7 @@ Play with prototype in PHP 5.4!
 
 ## Example
 
-### Class:
+### Class
 ``` php
 class Foo
 {
@@ -12,7 +12,7 @@ class Foo
 }
 ```
 
-### Code:
+### Code
 ``` php
 $foo = new Foo;
 
@@ -22,4 +22,11 @@ $foo->saidHello = function($lastName)
 };
 
 echo $foo->saidHello('Julien');
+```
+
+### Code
+```php
+$bar = new Foo;
+
+echo $bar->saidHello('Laura');
 ```
