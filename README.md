@@ -8,7 +8,7 @@ Play with prototype in PHP 5.4!
 ``` php
 class Foo
 {
-	use Prototype;
+	use Prototype\Prototype;
 }
 ```
 
