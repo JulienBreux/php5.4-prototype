@@ -1,4 +1,25 @@
-php5.4-prototype
-================
+# PHP 5.4 - Prototype
 
-Prototype for PHP 5.4
+Play with prototype in PHP 5.4!
+
+## Example:
+
+``` php
+class Foo
+{
+	use Prototype;
+}
+```
+
+``` php
+$foo = new Foo;
+
+$foo->saidHello = function($lastName)
+{
+	return "Hello $lastName";
+};
+
+echo $foo->saidHello('Julien');
+```
+
+Enjoy!
