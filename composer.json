@@ -1,0 +1,21 @@
+{
+	"name": "prototype/Prototype",
+	"type": "library",
+	"description": "PHP 5.4 - Prototype",
+	"license": "MIT",
+	"authors": [
+		{
+			"name": "Julien Breux",
+			"email": "julien.breux@gmail.com"
+		}
+	],
+	"require": {
+		"php": ">=5.4.1"
+	},
+	"autoload": {
+		"psr-0":
+		{
+			"Prototype": "src/"
+		}
+	}
+}
