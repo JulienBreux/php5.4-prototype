@@ -35,7 +35,7 @@ trait Prototype
 	public function __set($name, $value)
 	{
 		// Set as method
-		if( $value instanceof \Closure )
+		if($value instanceof \Closure)
 		{
 			if(!array_key_exists(__CLASS__, self::$methods))
 			{
