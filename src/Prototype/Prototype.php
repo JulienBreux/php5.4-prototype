@@ -93,4 +93,20 @@ trait Prototype
 
 		self::$methods[__CLASS__][$name] = $closure;
 	}
+
+	/**
+	 * Test existence of prototype
+	 *
+	 * @param string $name Prototype name
+	 * @return bool
+	 */
+	public static function prototypeExists($name)
+	{
+		if(!array_key_exists(__CLASS__, self::$methods))
+		{
+			return false;
+		}
+
+		return array_key_exists($name, self::$methods[__CLASS__]);
+	}
 }
