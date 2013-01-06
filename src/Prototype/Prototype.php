@@ -77,4 +77,20 @@ trait Prototype
 			}
 		}
 	}
+
+	/**
+	 * Prototype class
+	 *
+	 * @param string $name Prototype name
+	 * @param \Closure $closure Prototype
+	 */
+	public static function prototype($name, \Closure $closure)
+	{
+		if(!array_key_exists(__CLASS__, self::$methods))
+		{
+			self::$methods[__CLASS__] = [];
+		}
+
+		self::$methods[__CLASS__][$name] = $closure;
+	}
 }
