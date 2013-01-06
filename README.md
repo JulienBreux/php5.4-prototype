@@ -12,7 +12,7 @@ class Foo
 }
 ```
 
-### Code #1
+### Add prototype to object (and others objects)
 ``` php
 $foo = new Foo;
 
@@ -24,7 +24,15 @@ $foo->saidHello = function($lastName)
 echo $foo->saidHello('Julien');
 ```
 
-### Code #2
+### Add prototype to class (for all objects)
+```php
+Foo::prototype('saidHello', function($lastName)
+{
+  return "Hello $lastName";
+});
+```
+
+### Usage
 ```php
 $bar = new Foo;
 
