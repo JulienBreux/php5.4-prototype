@@ -16,7 +16,7 @@ trait Prototype
 	* @param string $name Property name
 	* @return mixed
 	*/
-	public function &__get($name)
+	public function __get($name)
 	{
 		if(array_key_exists($name, $this->properties))
 		{
@@ -109,4 +109,12 @@ trait Prototype
 
 		return array_key_exists($name, self::$methods[__CLASS__]);
 	}
+
+    /**
+     * Prototype clean
+     */
+    public static function prototypeClean()
+    {
+        self::$methods = [];
+    }
 }
