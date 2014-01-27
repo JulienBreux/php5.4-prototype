@@ -14,22 +14,18 @@ use Tests\Foo;
 class PrototypeTest extends \PHPUnit_Framework_TestCase
 {
     /**
-     * Test: Add method to object
+     * Test: Access property
      */
-    public function testAddMethodToObject()
+    public function testAccessProperty()
     {
-        $fooClass = new Foo();
+        Foo::prototypeClean();
 
-        // Add method
-        $fooClass->{'saidHello'} = function($name)
-        {
-            return "Hello $name";
-        };
+        $foo = new Foo;
 
-        $this->assertEquals(
-            $fooClass->saidHello('world'),
-            'Hello world'
-        );
+        $foo->hello = 'world';
+
+        $this->assertEquals($foo->hello, 'world');
+        $this->assertNull($foo->bye);
     }
 
     /**
@@ -37,6 +33,8 @@ class PrototypeTest extends \PHPUnit_Framework_TestCase
      */
     public function testAddMethodToClass()
     {
+        Foo::prototypeClean();
+
         // Add method
         Foo::prototype('saidHello', function($name)
         {
@@ -49,22 +47,8 @@ class PrototypeTest extends \PHPUnit_Framework_TestCase
             $fooClass->saidHello('planet'),
             'Hello planet'
         );
-    }
 
-    /**
-     * Test: Check method in object
-     */
-    public function testCheckMethodInObject()
-    {
-        $fooClass = new Foo();
-
-        // Add method
-        $fooClass->{'saidHello'} = function($name)
-        {
-            return "Hello $name";
-        };
-
-        $this->assertTrue(Foo::prototypeExists('saidHello'));
+        $this->assertNull($fooClass->anotherSaidHello());
     }
 
     /**
@@ -72,6 +56,8 @@ class PrototypeTest extends \PHPUnit_Framework_TestCase
      */
     public function testCheckMethodInClass()
     {
+        Foo::prototypeClean();
+
         // Add method
         Foo::prototype('saidHello', function($name)
         {
@@ -79,5 +65,48 @@ class PrototypeTest extends \PHPUnit_Framework_TestCase
         });
 
         $this->assertTrue(Foo::prototypeExists('saidHello'));
+    }
+
+    /**
+     * Test: Check method in object
+     */
+    public function testCheckMethodInObject()
+    {
+        Foo::prototypeClean();
+
+        $fooClass = new Foo();
+
+        // Add method
+        $fooClass->saidHello = function($name)
+        {
+            return "Hello $name";
+        };
+
+        $this->assertTrue(Foo::prototypeExists('saidHello'));
+
+        Foo::prototypeClean();
+
+        $this->assertFalse(Foo::prototypeExists('notSaidHello'));
+    }
+
+    /**
+     * Test: Add method to object
+     */
+    public function testAddMethodToObject()
+    {
+        Foo::prototypeClean();
+
+        $fooClass = new Foo();
+
+        // Add method
+        $fooClass->saidHello = function($name)
+        {
+            return "Hello $name";
+        };
+
+        $this->assertEquals(
+            $fooClass->saidHello('world'),
+            'Hello world'
+        );
     }
 }
